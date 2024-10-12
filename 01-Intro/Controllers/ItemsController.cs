@@ -9,5 +9,9 @@ namespace _01_Intro.Controllers
             Item item = new Item(){Name = "Keyboard"};
             return View(item);
         }
+
+        public IActionResult Parameter(int id) {
+            return Content("parameter value  = " + id);
+        }
     }
 }
