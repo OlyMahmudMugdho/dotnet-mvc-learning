@@ -1,0 +1,33 @@
+@model StudentCRUD.Models.Student
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+</head>
+<body>
+    <h1>Add Student</h1>
+    <form method="post" action="/Student/Add">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name" />
+        </div>
+
+        <div>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="Email" />
+        </div>
+
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="Age" />
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</body>
+</html>
