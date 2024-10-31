@@ -20,6 +20,18 @@ public class EmployeeController : Controller
         return View(await employees);
     }
 
+    public async Task<IActionResult> Details(int? id)
+    {   
+
+        if (id == null)
+        {
+            return NotFound();
+        }
+        Console.WriteLine("id = " + id);
+        Task<Employee> employee = _context.employees.SingleAsync(m => m.Id == id);
+        return View(await employee);
+    }
+
     [HttpGet]
     public IActionResult Add(){
         Employee employee = new Employee();
