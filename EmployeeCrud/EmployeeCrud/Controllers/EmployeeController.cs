@@ -1,5 +1,6 @@
 using EmployeeCrud.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace EmployeeCrud;
@@ -13,9 +14,10 @@ public class EmployeeController : Controller
     }
 
     
-    public IActionResult Index()
-    {
-        return View();
+    public async Task<IActionResult> Index()
+    {   
+        Task<List<Employee>> employees = _context.employees.ToListAsync();
+        return View(await employees);
     }
 
     [HttpGet]
