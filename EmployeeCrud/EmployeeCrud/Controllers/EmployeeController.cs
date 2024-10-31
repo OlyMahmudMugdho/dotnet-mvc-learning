@@ -84,4 +84,18 @@ public class EmployeeController : Controller
             return View(employee);
         }
     }
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var employee = await _context.employees.FindAsync(id);
+        _context.employees.Remove(employee);
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
 }
