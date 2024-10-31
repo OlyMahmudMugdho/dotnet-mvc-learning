@@ -1,0 +1,19 @@
+@model EmployeeCrud.Models.Employee
+
+@{
+    ViewData["Title"] = "Update Employee";
+}
+
+<form asp-action="Edit">
+    <input hidden asp-value="@Model.Id" />
+    <h1>Add an employee</h1>
+  <div class="mb-3">
+    <label for="Name" class="form-label">Name</label>
+    <input asp-value="@Model.Name" asp-for="Name" type="text" class="form-control" id="Name">
+  </div>
+  <div class="mb-3">
+    <label for="Department" class="form-label">Department</label>
+    <input asp-value="@Model.Department" asp-for="Department" type="text" class="form-control" id="Department">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
